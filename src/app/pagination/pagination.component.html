@@ -1,0 +1,20 @@
+<nav aria-label="...">
+  <ul class="pagination">
+
+    <li class="page-item" [ngClass]="{'disabled':currentPage === 1}" (click)="previousPage()">
+      <a class="page-link" [routerLink]="" tabindex="-1">Prev</a>
+    </li>
+    
+    <li  *ngFor="let page of pages; let i=index" class="page-item" [ngClass]="{'active':page === currentPage, 'disabled':page === '...'}">
+      <a *ngIf="page !== '...' else other_page" class="page-link" [routerLink]="" (click)="changePage(page)">{{ page }}</a>
+      <ng-template #other_page>
+          <a class="page-link" [routerLink]="">{{ page }}</a>
+        </ng-template>
+    </li>
+    
+    <li class="page-item" [ngClass]="{'disabled':currentPage >= totalPages}" (click)="nextPage()">
+      <a class="page-link" [routerLink]="">Next</a>
+    </li>
+
+  </ul>
+</nav>

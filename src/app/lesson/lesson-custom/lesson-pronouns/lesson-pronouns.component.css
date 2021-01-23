@@ -1,0 +1,15 @@
+thead > tr > th {
+    vertical-align: middle;
+}
+tbody > tr > td {
+    vertical-align: middle;
+}
+
+table {
+    white-space: nowrap;
+}
+
+td {
+    padding-right: 10px;
+    padding-left: 10px;
+}

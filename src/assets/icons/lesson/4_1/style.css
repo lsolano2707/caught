@@ -1,0 +1,72 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?y6eljn');
+  src:  url('fonts/icomoon.eot?y6eljn#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?y6eljn') format('truetype'),
+    url('fonts/icomoon.woff?y6eljn') format('woff'),
+    url('fonts/icomoon.svg?y6eljn#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-mathematical-greater-than:before {
+  content: "\b400";
+}
+.icon-mathematical-less-than:before {
+  content: "\b401";
+}
+.icon-mathematical-brackets:before {
+  content: "\b402";
+}
+.icon-mathematical-division:before {
+  content: "\b403";
+}
+.icon-mathematical-equal:before {
+  content: "\b404";
+}
+.icon-mathematical-infinity:before {
+  content: "\b405";
+}
+.icon-mathematical-minus:before {
+  content: "\b406";
+}
+.icon-mathematical-not-equal:before {
+  content: "\b407";
+}
+.icon-mathematical-parentheses:before {
+  content: "\b408";
+}
+.icon-mathematical-percentage:before {
+  content: "\b409";
+}
+.icon-mathematical-pi:before {
+  content: "\b40a";
+}
+.icon-mathematical-plus:before {
+  content: "\b40b";
+}
+.icon-mathematical-square-brackets:before {
+  content: "\b40c";
+}
+.icon-mathematical-square-root:before {
+  content: "\b40d";
+}
+.icon-mathematical-times:before {
+  content: "\b40e";
+}
+

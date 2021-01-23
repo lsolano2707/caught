@@ -1,0 +1,90 @@
+<nav class="navbar navbar-light bg-purple fixed-top">
+  <a class="navbar-brand">
+    <strong style="font-size: 30px">C!</strong> Caught
+  </a>
+  <form class="form-inline">
+
+    <a *ngIf="!isHome" class="navbar-brand" [routerLink]="['/home']" data-toggle="tooltip" data-placement="bottom"
+      title="Return home">
+      <strong style="font-size: 30px"><span class="icon-home"></span></strong>
+    </a>
+
+    <a *ngIf="isConfigExam" class="navbar-brand" [routerLink]="" data-toggle="tooltip" data-placement="bottom" title="Return lesson"
+      (click)="setOption('lesson')">
+      <strong style="font-size: 30px"><span class="icon-file-text2"></span></strong>
+    </a>
+
+    <a *ngIf="isLesson || isConfigExam" class="navbar-brand" [routerLink]="" data-toggle="tooltip" data-placement="bottom"
+      title="Go to exam" (click)="setOption('exam')">
+      <strong style="font-size: 30px"><span class="icon-writing"></span></strong>
+    </a>
+
+    <a *ngIf="isExam" class="navbar-brand" [routerLink]="" data-toggle="tooltip" data-placement="bottom" title="Return config exam"
+      (click)="setOption('config')">
+      <strong style="font-size: 30px"><span class="icon-cog"></span></strong>
+    </a>
+
+    <a *ngIf="isExam" class="navbar-brand" [routerLink]="" data-toggle="tooltip" data-placement="bottom" title="Finish exam"
+      (click)="setOption('score')">
+      <strong style="font-size: 30px"><span class="icon-clipboard"></span></strong>
+    </a>
+
+    <!-- <a class="icon-home" href="/home"></a> -->
+    <div *ngIf="searchField">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="searchText"
+        (keyup)="search($event)">
+    </div>&nbsp;&nbsp;
+
+    <a *ngIf="isHome" class="navbar-brand" [routerLink]="" data-toggle="modal" data-target="#listeningModal"
+      data-placement="bottom" title="Listeing pages">
+      <strong style="font-size: 30px"><span class="icon-headphones"></span></strong>
+    </a>
+
+    <a *ngIf="isHome" class="navbar-brand" [routerLink]="" data-toggle="modal" data-target="#creditsModal"
+      data-placement="bottom" title="Credits">
+      <strong style="font-size: 30px"><span class="icon-info"></span></strong>
+    </a>
+
+  </form>
+</nav>
+
+<!-- Modal Listening -->
+<div class="modal fade" id="listeningModal" tabindex="-1" role="dialog" aria-labelledby="listeningModal" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Listening sites</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-listening-info></app-listening-info>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal Credits -->
+<div class="modal fade" id="creditsModal" tabindex="-1" role="dialog" aria-labelledby="creditsModal" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Credits</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-credits></app-credits>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

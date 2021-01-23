@@ -1,0 +1,129 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?pc00j3');
+  src:  url('fonts/icomoon.eot?pc00j3#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?pc00j3') format('truetype'),
+    url('fonts/icomoon.woff?pc00j3') format('woff'),
+    url('fonts/icomoon.svg?pc00j3#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-number-0:before {
+  content: "\b200";
+}
+.icon-number-1:before {
+  content: "\b201";
+}
+.icon-number-2:before {
+  content: "\b202";
+}
+.icon-number-3:before {
+  content: "\b203";
+}
+.icon-number-4:before {
+  content: "\b204";
+}
+.icon-number-5:before {
+  content: "\b205";
+}
+.icon-number-6:before {
+  content: "\b206";
+}
+.icon-number-7:before {
+  content: "\b207";
+}
+.icon-number-8:before {
+  content: "\b208";
+}
+.icon-number-9:before {
+  content: "\b209";
+}
+.icon-number-10:before {
+  content: "\b20a";
+}
+.icon-number-11:before {
+  content: "\b20b";
+}
+.icon-number-12:before {
+  content: "\b20c";
+}
+.icon-number-13:before {
+  content: "\b20d";
+}
+.icon-number-14:before {
+  content: "\b20e";
+}
+.icon-number-15:before {
+  content: "\b20f";
+}
+.icon-number-16:before {
+  content: "\b210";
+}
+.icon-number-17:before {
+  content: "\b211";
+}
+.icon-number-18:before {
+  content: "\b212";
+}
+.icon-number-19:before {
+  content: "\b213";
+}
+.icon-number-20:before {
+  content: "\b214";
+}
+.icon-number-30:before {
+  content: "\b215";
+}
+.icon-number-40:before {
+  content: "\b216";
+}
+.icon-number-50:before {
+  content: "\b217";
+}
+.icon-number-60:before {
+  content: "\b218";
+}
+.icon-number-70:before {
+  content: "\b219";
+}
+.icon-number-80:before {
+  content: "\b21a";
+}
+.icon-number-90:before {
+  content: "\b21b";
+}
+.icon-number-100:before {
+  content: "\b21c";
+}
+.icon-number-200:before {
+  content: "\b21d";
+}
+.icon-number-1000:before {
+  content: "\b21e";
+}
+.icon-number-2000:before {
+  content: "\b21f";
+}
+.icon-number-1000000:before {
+  content: "\b220";
+}
+.icon-number-2000000:before {
+  content: "\b221";
+}
+

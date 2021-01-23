@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+
+  <!-- OBJECT -->
+  <div class="col-12 col-md-auto" *ngFor="let vocabulary of dataFilter; let i=index">
+    <div class="single-special text-center wow fadeInUp" data-wow-delay="0.2s">
+
+      <!-- ENGLISH -->
+      <div class="single-text-top-icon">
+        <h5>
+          <span *ngIf="vocabulary.englishAudio" class="icon-volume-medium" (click)="play($event);">
+            <audio src="assets/sounds/lesson/{{ idLesson }}/ENGLISH/{{ vocabulary.englishAudio }}"></audio>
+          </span>
+          <span data-toggle="tooltip" data-placement="bottom" title="{{ vocabulary.englishPronunciation }}">
+            {{ vocabulary.englishValue }}
+          </span>
+        </h5>
+      </div>
+      <!-- /ENGLISH -->
+
+      <!-- IMG -->
+      <span class="img-fluid icon-paint2" [style.color]="vocabulary.otherValue" style="font-size: 100px;"></span>
+      <!-- /IMG -->
+
+      <!-- SPANISH -->
+      <div class="single-text-bottom-icon">
+        <h5>
+          <span *ngIf="vocabulary.spanishAudio" class="icon-volume-medium" (click)="play($event);">
+            <audio src="assets/sounds/lesson/{{ idLesson }}/SPANISH/{{ vocabulary.spanishAudio }}"></audio>
+          </span>
+          <span data-toggle="tooltip" data-placement="top" title="{{ vocabulary.spanishPronunciation }}">
+            {{ vocabulary.spanishValue }}
+          </span>
+        </h5>
+      </div>
+      <!-- /SPANISH -->
+
+    </div>
+  </div>
+  <!-- /OBJECT -->
+
+</div>
+
+<div class="row justify-content-center">
+  <div class="col-12 text-center">
+    <app-pagination [totalPagesInput]="totalPages" [currentPage]="currentPage" (currentPageEvent)="getCurrentPage($event)"></app-pagination>
+  </div>
+</div>

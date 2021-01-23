@@ -1,0 +1,56 @@
+<app-header [isHome]="true" [searchField]="true" (outputSearch)="search($event)"></app-header>
+
+<div class="container-fluid">
+
+    <br>
+  
+    <!-- HEADER -->
+    <div class="row">
+      <div class="col-12">
+  
+        <div class="section-heading text-center">
+          <h2>Home</h2>
+          <div class="line-shape"></div>
+        </div>
+  
+      </div>
+    </div>
+    <!-- /HEADER -->
+      
+    <br>
+  
+    <!-- LESSON LIST-->
+    <div class="row">
+  
+      <!-- Lesson -->
+      <div class="col-12 col-md-3" *ngFor="let lesson of lessons | filter : 'name' : searchText; let i=index">
+        <div class="single-special text-center wow fadeInUp" data-wow-delay="0.2s">
+          <div class="single-icon">
+            <i class="{{ lesson.icon }}" aria-hidden="true"></i>
+          </div>
+          <h4 class="text-capitalize">{{ lesson.name }}</h4>
+  
+          <div class="row justify-content-md-center">
+            <div class="col-6">
+              <!-- <a [routerLink]="['/lesson', lesson.idLesson, 'lesson']" class="btn btn-purple btn-block icon-book"> Lesson</a> -->
+              <button [routerLink]="['/lesson', lesson.idLesson, 'lesson']" class="btn btn-purple btn-block"> Lesson</button>
+            </div>
+            <div class="col-6">
+              <!-- <a [routerLink]="['/lesson', lesson.id, 'exam']" class="btn btn-red btn-block icon-writing"> Exam</a> -->
+              <button [routerLink]="['/lesson', lesson.idLesson, 'exam']" class="btn btn-red btn-block"> Exam</button>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+      <!-- /Lesson -->  
+  
+    </div>
+    <!-- /LESSON LIST -->
+  
+  
+  
+  
+  
+  </div>
+  
