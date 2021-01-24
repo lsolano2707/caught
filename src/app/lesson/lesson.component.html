@@ -1,0 +1,90 @@
+<!-- <app-header [returnHome]="true" (outputSearch)="search($event)"></app-header> -->
+
+
+
+<div *ngIf="lesson" [ngSwitch]="option">
+
+  <!-- CLASS LESSON-->
+  <div *ngSwitchCase="'lesson'" [ngSwitch]="lesson.lessonType.id">
+
+    <app-header [isLesson]="true" [searchField]="true" (outputEvent)="getHeaderOption($event)" (outputSearch)="search($event)"></app-header>
+    <div class="container-fluid">
+        <!-- <div class="container-fluid" style="padding-top: 70.8px;"> -->
+
+      <br>
+
+      <!-- HEADER -->
+      <div class="row">
+        <div class="col-12">
+
+          <div class="section-heading text-center">
+            <h2 class="text-capitalize">{{lesson.name}}</h2>
+            <div class="line-shape"></div>
+          </div>
+
+        </div>
+      </div>
+      <!-- /HEADER -->
+
+      <!-- *** LESSON - ICON FONT *** -->
+      <lesson-icon-font *ngSwitchCase="'1'" [data]="lesson.data" [idLesson]="lesson.idLesson" [searchText]="searchText"></lesson-icon-font>
+
+      <!-- *** LESSON - GRAPHICS IMAGES *** -->
+      <lesson-images *ngSwitchCase="'2'" [data]="lesson.data" [idLesson]="lesson.idLesson" [searchText]="searchText"></lesson-images>
+
+      <!-- *** LESSON - GRAPHICS TEXTS *** -->
+      <graphics-text *ngSwitchCase="'3'" [data]="lesson.data" [idLesson]="lesson.idLesson" [searchText]="searchText"></graphics-text>
+
+      <!-- *** LESSON - CUSTOM *** -->
+      <div *ngSwitchCase="'4'" [ngSwitch]="lesson.idLesson">
+
+        <!-- COLORS -->
+        <lesson-colors *ngSwitchCase="'2_1'" [data]="lesson.data" [idLesson]="lesson.idLesson" [searchText]="searchText"></lesson-colors>
+        
+        <!-- PERSONAL PRONOUNS -->
+        <app-lesson-pronouns *ngSwitchCase="'11_2'" [data]="lesson.data" [idLesson]="lesson.idLesson" [searchText]="searchText"></app-lesson-pronouns>
+
+        <!-- ARTICLES -->
+        <!-- <lesson-articles *ngSwitchCase="'9_1'" [id]="lesson.idLesson" (length)="getLength($event)"></lesson-articles> -->
+      </div>
+
+      <!-- *** LESSON - VOCABULARY *** -->
+      <lesson-vocabulary *ngSwitchCase="'5'" [data]="lesson.data" [idLesson]="lesson.idLesson" [searchText]="searchText"></lesson-vocabulary>
+      
+      <!-- *** LESSON - VERBS *** -->
+      <lesson-verb *ngSwitchCase="'6'" [data]="lesson.data" [idLesson]="lesson.idLesson" [searchText]="searchText"></lesson-verb>
+
+      <!-- FOOTER -->
+      <hr>
+      <div class="row justify-content-md-center">
+
+        <div class="col-6 col-md-2">
+          <a routerLink="/home" class="btn btn-purple btn-block icon-home" data-toggle="tooltip" data-placement="bottom"
+            title="Return home">
+            Home</a>
+        </div>
+        <div class="col-6 col-md-2">
+          <a [routerLink]="['/lesson', lesson.idLesson, 'exam']" class="btn btn-red btn-block icon-writing" data-toggle="tooltip"
+            data-placement="bottom" title="Go to the exam" (click)="changeOptionConfig()"> Exam</a>
+          <!-- <button class="btn btn-red btn-block icon-writing" data-toggle="tooltip" data-placement="bottom" title="Go to the exam" (click)="changeOptionConfig()"> Exam</button> -->
+        </div>
+
+      </div>
+      <!-- /FOOTER -->
+
+    </div>
+
+  </div>
+  <!-- /CLASS LESSON-->
+
+
+  <!-- CONFIG EXAM -->
+  <config-exam *ngSwitchCase="'config'" [lesson]="lesson" (option)="getOption($event)" (configExam)="getConfigExam($event)"></config-exam>
+  
+  <!-- EXAM -->
+  <exam *ngSwitchCase="'exam'" [lesson]="lesson" [configExam]="configExam" (option)="getOption($event)" (examToScoreEvent)="getExamToScoreEvent($event)"></exam>
+
+  <!-- SCORE -->
+  <score *ngSwitchCase="'score'" [lessonName]="lesson.name" [score]="score" (optionEvent)="getOption($event)"></score>
+
+</div>

@@ -1,0 +1,227 @@
+<app-header [isExam]="true" [lessonId]="lesson.idLesson" (outputEvent)="getHeaderOption($event)"></app-header>
+<div class="container-fluid">
+
+  <br>
+
+  <!-- HEADER -->
+  <div class="row">
+    <div class="col-12">
+
+      <div class="section-heading text-center" style="margin-bottom: 30px;">
+        <h2 class="text-capitalize">Exam - {{lesson.name}}</h2>
+        <div class="line-shape"></div>
+      </div>
+
+    </div>
+  </div>
+  <!-- /HEADER -->
+
+  <!-- SCORE -->
+  <div *ngIf="!configExam.buttonBack">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-2">
+
+
+        <div class="card text-center">
+          <div class="card-header text-white background-purple mb-3" style="font-weight: bold; padding: 0.35rem 1.25rem;">
+            <label style="margin-bottom: 0;">SCORE ({{position}}/{{countAnswer}})</label>
+          </div>
+          <div class="card-body" style="padding: 0;">
+
+            <div class="row">
+              <div class="col-6">
+                <span class="icon-checkmark" style="color: green;"></span>
+              </div>
+              <div class="col-6">
+                <span class="icon-cross" style="color: red;"></span>
+              </div>
+            </div>
+
+            <!-- <hr> -->
+
+            <div class="row">
+              <div class="col-6">
+                <label>{{ correctAnswers }}</label>
+              </div>
+              <div class="col-6">
+                <label>{{ mistakes }}</label>
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+    <br>
+  </div>
+  <!-- /SCORE -->
+
+  <!-- TIME -->
+  <div *ngIf="configExam.time">
+    <div class="row justify-content-center">
+      <h3 [ngClass]="colorRojo ? 'timer-ending' : 'timer-general'">
+        <span class="icon-clock"></span> {{ hours | number: '2.0' }}:{{ minutes | number: '2.0' }}:{{ seconds | number:
+        '2.0' }}
+      </h3>
+    </div>
+    <br>
+  </div>
+  <!-- /TIME -->
+
+  <!--WRITING EXAM-->
+  <div *ngIf="question && configExam.typeAnswer == 'WRITING'">
+
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <!--HEADER-->
+          <div class="card-header background-purple text-center" style="font-weight: bold; padding: 0.35rem 1.25rem;">
+            <div class="row">
+              <div class="col-md-12 text-left">
+                <label style="margin-bottom: 0;" *ngIf="configExam.typeQuestion == 'TEXT'; else other_content_type_question">{{position}})
+                  {{question.questionText}} ?</label>
+                <ng-template #other_content_type_question>
+                  <span class="input-group-addon icon-volume-medium" (click)="play($event);" style="display: block;">
+                    <audio *ngIf="configExam.questionLanguaje == 'SPANISH' || configExam.questionsVerbs == 'SPANISH'; else other_content_audio_english" src="assets/sounds/lesson/{{ lesson.idLesson }}/SPANISH/{{ question.questionAudio }}"></audio>
+                    <ng-template #other_content_audio_english>
+                      <audio src="assets/sounds/lesson/{{ lesson.idLesson }}/ENGLISH/{{ question.questionAudio }}"></audio>
+                    </ng-template>
+                  </span>
+                </ng-template>
+              </div>
+            </div>
+          </div>
+          <!--BODY-->
+          <div class="card-body">
+            <form novalidate [formGroup]="form">
+              <div class="row">
+                <div class="col-md-12">
+
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text" id="btnGroupAddon">Answer:</div>
+                    </div>
+                    <input class="form-control answer" type="text" style="box-shadow: none" formControlName="answer"
+                      [autofocus]="true" (keypress)="validate($event)" />
+                  </div>
+
+                </div>
+              </div>
+            </form>
+
+            <!-- <hr> -->
+            <br>
+
+            <div class="text-right">
+              <div *ngIf="position < countAnswer; else other_content_button">
+                <button type="button" *ngIf="configExam.buttonBack && position > 1" class="btn btn-secondary back"
+                  (click)="backQuestion()">Back</button>
+                <button type="button" class="btn btn-red next" (click)="validateQuestion()">Next</button>
+              </div>
+              <ng-template #other_content_button>
+                <button type="button" *ngIf="configExam.buttonBack" class="btn btn-secondary back" (click)="backQuestion()">Back</button>
+                <button type="button" class="btn btn-red finish" (click)="validateQuestion()">Finish</button>
+              </ng-template>
+            </div>
+
+          </div>
+
+
+
+
+        </div>
+        <!--FIN PANEL-->
+
+      </div>
+    </div>
+  </div>
+
+  <!--MULTICHOICE EXAM-->
+  <div *ngIf="questionMultichoice && configExam.typeAnswer == 'MULTICHOICE'">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <!--HEADER-->
+          <div class="card-header background-purple text-center" style="font-weight: bold; padding: 0.35rem 1.25rem;">
+            <div class="row">
+              <div class="col-md-12 text-left">
+                <label style="margin-bottom: 0;" *ngIf="configExam.typeQuestion == 'TEXT'; else other_content_type_question">{{position}})
+                  {{questionMultichoice.question.questionText}} ?</label>
+                <ng-template #other_content_type_question>
+                  <span class="input-group-addon icon-volume-medium" (click)="play($event);" style="display: block;">
+                    <audio *ngIf="configExam.questionLanguaje == 'SPANISH' || configExam.questionsVerbs == 'SPANISH'; else other_content_audio_english" src="assets/sounds/lesson/{{ lesson.idLesson }}/SPANISH/{{ questionMultichoice.question.questionAudio }}"></audio>
+                    <ng-template #other_content_audio_english>
+                      <audio src="assets/sounds/lesson/{{ lesson.idLesson }}/ENGLISH/{{ questionMultichoice.question.questionAudio }}"></audio>
+                    </ng-template>
+                  </span>
+                </ng-template>
+              </div>
+            </div>
+          </div>
+          <!--BODY-->
+          <div class="card-body">
+
+            <form novalidate [formGroup]="form">
+              <div class="row">
+                <div *ngFor="let option of questionMultichoice.options; let i=index" class="col-12 col-md-6">
+
+
+                  <div class="input-group" (click)="selectAnswer(option.id)">
+                    <div class="input-group-prepend">
+                      <!-- <div class="input-group-text" [style.background-color]="form.value.answer === option.id ? 'yellow22' : null"> -->
+                      <!-- <div class="input-group-text" [ngClass]="{'background-red': form.value.answer === option.id}"> -->
+                      <div class="input-group-text">
+                        <input type="radio" formControlName="answer" value="{{option.id}}">&nbsp;&nbsp;<strong>{{option.id}})</strong>
+                      </div>
+                    </div>
+                    <span *ngIf="configExam.multichoiceType == 'TEXT'; else other_content_multichoiceType" class="form-control"
+                      [style.color]="form.value.answer === option.id ? '#884bdf' : null" [style.border-color]="form.value.answer === option.id ? '#884bdf' : null">{{option.valueText}}
+                    </span>
+                    <ng-template #other_content_multichoiceType>
+                      <span class="input-group-addon icon-volume-medium form-control" (click)="play($event);">
+                        <audio *ngIf="configExam.answerLanguaje == 'SPANISH'; else other_content_multichoiceType_audio_english"
+                          src="assets/sounds/lesson/{{ lesson.idLesson }}/SPANISH/{{ option.valueAudio }}"></audio>
+                        <ng-template #other_content_multichoiceType_audio_english>
+                          <audio src="assets/sounds/lesson/{{ lesson.idLesson }}/ENGLISH/{{ option.valueAudio }}"></audio>
+                        </ng-template>
+                      </span>
+                    </ng-template>
+                  </div>
+
+                  <br>
+
+                </div>
+              </div>
+            </form>
+
+            <!-- <hr> -->
+
+            <div class="text-right">
+              <div *ngIf="position < countAnswer; else other_content_button">
+                <button type="button" *ngIf="configExam.buttonBack && configExam.numberOfQuestion > 1 && position > 1"
+                  class="btn btn-secondary back" (click)="backMultichoiceQuestion()">Back</button>&nbsp;&nbsp;
+                <button type="button" class="btn btn-red next" (click)="validateMultichoiceQuestion()">Next</button>
+              </div>
+              <ng-template #other_content_button>
+                <button type="button" *ngIf="configExam.buttonBack && configExam.numberOfQuestion > 1" class="btn btn-secondary back"
+                  (click)="backMultichoiceQuestion()">Back</button>&nbsp;&nbsp;
+                <button type="button" class="btn btn-red finish" (click)="validateMultichoiceQuestion()">Finish</button>
+              </ng-template>
+            </div>
+
+          </div>
+
+        </div>
+        <!--FIN PANEL-->
+
+      </div>
+    </div>
+  </div>
+
+
+</div>

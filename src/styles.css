@@ -1,0 +1,269 @@
+/* body {
+  background: #f4f6f9;
+} */
+
+
+.single-special {
+  /* background: #fff; */
+  border: 1px solid #eff2f6;
+  /* border: 1px solid #e7e7e7; */
+  padding: 40px;
+  border-radius: 40px 40px 40px 0px;
+  -webkit-transition-duration: 800ms;
+  -o-transition-duration: 800ms;
+  transition-duration: 800ms;
+  margin-bottom: 30px;
+
+  visibility: visible;
+  animation-delay: 0.2s;
+  animation-name: fadeInUp;
+}
+
+.single-special:hover {
+  -webkit-box-shadow: 0 10px 90px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 90px rgba(0, 0, 0, 0.08);
+}
+
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+
+.single-special>h4 {
+  font-size: 22px;
+  color: #5b32b4;
+  margin-bottom: 15px;
+}
+
+.single-icon {
+  margin-bottom: 25px;
+}
+
+.single-icon>i {
+  font-size: 40px;
+  color: #fb397d;
+}
+
+.section-heading {
+  margin-bottom: 60px;
+}
+
+.section-heading>h2 {
+  font-weight: 300;
+  color: #5b32b4;
+  font-size: 48px;
+  margin: 0;
+}
+
+.line-shape {
+  margin-left: calc(50% - 40px);
+}
+
+.line-shape-white,
+.line-shape {
+  width: 80px;
+  height: 2px;
+  background-color: #fb397d;
+  margin-top: 15px;
+}
+
+.header_area.sticky {
+  background-color: #884bdf;
+  -webkit-box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  height: 70px;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+}
+
+.header_area {
+  left: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 99;
+  top: 0;
+  padding: 0 4%;
+}
+
+.navbar-brand {
+  color: #fff !important;
+}
+
+.bg-purple {
+  background-color: #884bdf !important;
+}
+
+.footer-social-icon {
+  margin-bottom: 30px;
+}
+
+.section_padding_70 {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+.footer-menu {
+  margin-bottom: 15px;
+}
+
+.footer-text {
+  margin-bottom: 15px;
+}
+
+.copyright-text>p {
+  margin-bottom: 0;
+  text-align: center !important;
+}
+
+p {
+  color: #726a84;
+  font-size: 16px;
+  font-weight: 300;
+  margin-top: 0;
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+.color-purple {
+  color: #884bdf;
+}
+
+.color-red {
+  color: #fb397d;
+}
+
+.btn-purple {
+  color: #fff;
+  background-color: #884bdf;
+  border-color: #884bdf;
+}
+
+.btn-purple:hover {
+  color: #fff;
+  background-color: #712fce;
+  border-color: #712fce;
+}
+
+.btn-red {
+  color: #fff;
+  background-color: #fb397d;
+  border-color: #fb397d;
+}
+
+.btn-red:hover {
+  color: #fff;
+  background-color: #ed3676;
+  border-color: #ed3676;
+}
+
+/* .img-fluid:hover {
+    box-shadow: 0 10px 90px rgba(0, 0, 0, 0.08);
+    color: #fb397d
+  } */
+
+/* Clear button styles
+  --------------------------------------------- */
+
+::-ms-clear {
+  display: none;
+}
+
+.form-control-clear {
+  z-index: 10;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+
+.background-purple {
+  color: #fff;
+  background-color: #884bdf;
+}
+
+.background-red {
+  color: #fff;
+  background-color: #fb397d;
+}
+
+/* table th:nth-child(1) {
+  border-radius: 3px 0px 0px 3px;
+} */
+
+.fixed-top {
+  position: sticky;
+}
+
+
+/* Table styles
+  --------------------------------------------- */
+thead>tr>th {
+  text-align: center;
+  background-color: #fb397d;
+  color: #fff;
+}
+
+thead.font-size,
+tbody.font-size {
+  font-size: 13px;
+}
+
+/* tbody>tr>td.bordered { */
+tbody>tr>td.bordered,
+tbody>tr>th.bordered {
+  border: 1px solid #efefef;
+}
+
+.table th,
+.table td {
+  border-top: none;
+}
+
+.table th.padding-none,
+.table td.padding-none {
+  padding: 0;
+}
+
+tbody.padding-none-top-bottom>tr>th,
+tbody.padding-none-top-bottom>tr>td {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+th:first-child {
+  border-top-left-radius: 8px;
+}
+
+th:last-child {
+  border-top-right-radius: 8px;
+}
+
+th.opciones,
+td.opciones {
+  width: 70px;
+  text-align: center;
+}
+
+th.id-row,
+td.id-row {
+  width: 30px;
+  text-align: center;
+}
+
+td.opciones span.icon {
+  cursor: pointer;
+}
+
+.table th,
+.table td {
+  /* padding: 0.35rem; */
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(0, 0, 0, 0.02);
+}

@@ -1,0 +1,339 @@
+<app-header [isConfigExam]="true" (outputEvent)="getHeaderOption($event)"></app-header>
+<div class="container-fluid">
+
+  <br>
+
+  <!-- HEADER -->
+  <div class="row">
+    <div class="col-12">
+
+      <div class="section-heading text-center">
+        <h2 class="text-capitalize">Config Exam - {{ lesson.name }}</h2>
+        <div class="line-shape"></div>
+      </div>
+
+    </div>
+  </div>
+  <!-- /HEADER -->
+
+  <!-- CONFIG EXAM-->
+  <div class="row justify-content-center">
+    <div class="col-10 col-md-10">
+
+      <form novalidate [formGroup]="form">
+
+
+        <div class="row justify-content-center">
+
+          <!-- TYPE QUESTION -->
+          <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <div class="single-special text-center wow fadeInUp align-middle" data-wow-delay="0.2s" style="height: 85%;">
+
+              <div class="single-text-top-icon">
+                <h5 class="color-red">Type Questions</h5>
+              </div>
+
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="typeQuestion" formControlName="typeQuestion" id="typeQuestion_text"
+                  value="TEXT" (change)="activateRadiobuttonAnswer()">
+                <label class="form-check-label" for="typeQuestion_text">Text</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="typeQuestion" formControlName="typeQuestion" id="typeQuestion_audio"
+                  value="AUDIO" (change)="activateRadiobuttonAnswer()">
+                <label class="form-check-label" for="typeQuestion_audio">Audio</label>
+              </div>
+
+            </div>
+          </div>
+          <!-- /TYPE QUESTION -->
+
+          <!-- TYPE ANSWER -->
+          <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <div class="single-special text-center wow fadeInUp" data-wow-delay="0.2s" style="height: 85%;">
+
+              <div class="single-text-top-icon">
+                <h5 class="color-red">Type Answers</h5>
+              </div>
+
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="typeAnswer" formControlName="typeAnswer" id="typeAnswer_multichoice"
+                  value="MULTICHOICE">
+                <label class="form-check-label" for="typeAnswer_multichoice">Multichoice</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="typeAnswer" formControlName="typeAnswer" id="typeAnswer_writing"
+                  value="WRITING">
+                <label class="form-check-label" for="typeAnswer_writing">Writing</label>
+              </div>
+
+              <div *ngIf="form.value.typeAnswer == 'MULTICHOICE'" class="row justify-content-center">
+                <div class="col-12">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="multichoiceType" formControlName="multichoiceType"
+                      id="multichoiceType_text" value="TEXT">
+                    <label class="form-check-label" for="multichoiceType_text">Text</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="multichoiceType" formControlName="multichoiceType"
+                      id="multichoiceType_audio" value="AUDIO">
+                    <label class="form-check-label" for="multichoiceType_audio">Audio</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <label class="form-check-label" for="multichoiceType_audio">Level:&nbsp;</label>
+                    <select class="form-control" formControlName="level">
+                      <option *ngIf="lesson.levels.includes(1)" value="1" selected>Easy</option>
+                      <option *ngIf="lesson.levels.includes(2)" value="2">Normal</option>
+                      <option *ngIf="lesson.levels.includes(3)" value="3">Hard</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <!-- /TYPE ANSWER -->
+
+          <!-- LANGUAJE -->
+          <ng-container *ngIf="lesson.lessonType.id !== 6; else other_content_verbs">
+
+            <!-- LANGUAJE QUESTIONS -->
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+              <div class="single-special text-center wow fadeInUp align-middle" data-wow-delay="0.2s" style="height: 85%;">
+
+                <div class="single-text-top-icon">
+                  <h5 class="color-red">Language Questions</h5>
+                </div>
+
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="questionLanguaje" formControlName="questionLanguaje"
+                    id="questionLanguaje_english" value="ENGLISH" (change)="changeAnswer()">
+                  <label class="form-check-label" for="questionLanguaje_english">English</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="questionLanguaje" formControlName="questionLanguaje"
+                    id="questionLanguaje_spanish" value="SPANISH" (change)="changeAnswer()">
+                  <label class="form-check-label" for="questionLanguaje_spanish">Spanish</label>
+                </div>
+
+              </div>
+            </div>
+            <!-- /LANGUAJE QUESTIONS -->
+
+            <!-- LANGUAJE ANSWER -->
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+              <div class="single-special text-center wow fadeInUp align-middle" data-wow-delay="0.2s" style="height: 85%;">
+
+                <div class="single-text-top-icon">
+                  <h5 class="color-red">Language Answer</h5>
+                </div>
+
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="answerLanguaje" formControlName="answerLanguaje"
+                    id="answerLanguaje_english" value="ENGLISH">
+                  <label class="form-check-label" for="answerLanguaje_english">English</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="answerLanguaje" formControlName="answerLanguaje"
+                    id="answerLanguaje_spanish" value="SPANISH">
+                  <label class="form-check-label" for="answerLanguaje_spanish">Spanish</label>
+                </div>
+
+              </div>
+            </div>
+            <!-- /LANGUAJE ANSWER -->
+
+          </ng-container>
+          <!-- /LANGUAJE -->
+
+          <!-- VERBS -->
+          <ng-template #other_content_verbs>
+
+            <!-- QUESTIONS VERBS -->
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+              <div class="single-special text-center wow fadeInUp align-middle" data-wow-delay="0.2s" style="height: 85%;">
+
+                <div class="single-text-top-icon">
+                  <h5 class="color-red">Questions Verbs</h5>
+                </div>
+
+                <select class="form-control" formControlName="questionsVerbs">
+                  <option value="RANDOM" selected>Random</option>
+                  <option value="PRESENT">Present</option>
+                  <option value="PAST">Past</option>
+                  <option value="PAST_PARTICIPLE">Past Participle</option>
+                  <option value="SPANISH">Spanish</option>
+                </select>
+
+              </div>
+            </div>
+            <!-- /QUESTIONS VERBS -->
+
+            <!-- ANSWER VERBS -->
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+              <div class="single-special text-center wow fadeInUp align-middle" data-wow-delay="0.2s" style="height: 85%;">
+
+                <div class="single-text-top-icon">
+                  <h5 class="color-red">Answer Verbs</h5>
+                </div>
+
+                <select class="form-control" formControlName="answerVerbs">
+                  <option value="RANDOM" selected>Random</option>
+                  <option value="PRESENT">Present</option>
+                  <option value="PAST">Past</option>
+                  <option value="PAST_PARTICIPLE">Past Participle</option>
+                  <option value="SPANISH">Spanish</option>
+                </select>
+
+              </div>
+            </div>
+            <!-- /ANSWER VERBS -->
+
+          </ng-template>
+          <!-- /VERBS -->
+
+
+
+          <!-- NUMBER OF QUESTIONS -->
+          <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <div class="single-special text-center wow fadeInUp align-middle" data-wow-delay="0.2s" style="height: 85%;">
+
+              <div class="btn-group" role="group" aria-label="First group">
+                <button type="button" class="btn btn-red" id="all-questions" [ngClass]="configDefault.optionNumberOfQuestion === 'all-questions' ? 'focus' :  null"
+                  (click)="showQuestionsNumber($event)">All questions</button>
+                <button type="button" class="btn btn-red" id="range-of-questions" [ngClass]="configDefault.optionNumberOfQuestion === 'range-of-questions' ? 'focus' :  null"
+                  (click)="showQuestionsNumber($event)">Range of questions</button>
+              </div>
+
+              <br>
+              <br>
+
+
+              <!-- Content -->
+              <div class="form-group row justify-content-center" *ngIf="configDefault.optionNumberOfQuestion === 'all-questions'; else other_content_range_of_questions"
+                style="margin-bottom: 0;">
+                <label for="colFormLabelSm" class="col-auto col-form-label col-form-label">Number of questions:</label>
+                <div class="col-auto">
+                  <input type="number" min="1" max="{{numberOfQuestions}}" class="form-control" formControlName="numberOfQuestion" />
+                </div>
+              </div>
+
+              <ng-template #other_content_range_of_questions>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label" for="typeQuestion_text">Start: </label>&nbsp;
+                      <input type="number" min="1" max="{{numberOfQuestions}}" class="form-control" formControlName="rangeOfQuestionStart" />
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label" for="typeQuestion_text">End:</label>&nbsp;
+                      <input type="number" min="{{form.value.rangeOfQuestionStart}}" max="{{numberOfQuestions}}" class="form-control"
+                        formControlName="rangeOfQuestionEnd" />
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
+              <!-- /Content -->
+
+            </div>
+          </div>
+          <!-- /NUMBER OF QUESTIONS -->
+
+          <!-- ORDER QUESTIONS -->
+          <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <div class="single-special text-center wow fadeInUp align-middle" data-wow-delay="0.2s" style="height: 85%;">
+
+              <div class="single-text-top-icon">
+                <h5 class="color-red">Order Questions</h5>
+              </div>
+
+              <select class="form-control" formControlName="orderQuestions">
+                <option value="RANDOM" selected>Random</option>
+                <option value="ASCENDING">Ascending (A - Z)</option>
+                <option value="DESCENDING">Descending (Z - A)</option>
+                <option value="DEFAULT">Default</option>
+              </select>
+
+            </div>
+          </div>
+          <!-- /ORDER QUESTIONS -->
+
+          <!-- TIME -->
+          <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <div class="single-special text-center wow fadeInUp align-middle" data-wow-delay="0.2s" style="height: 85%;">
+
+              <div class="single-text-top-icon">
+                <h5 class="color-red">Time (Min)</h5>
+              </div>
+
+              <div class="row justify-content-center">
+                <div class="col-auto">
+                  <label class="switch">
+                    <input class="switch-input checkSwitch" type="checkbox" (click)="activateTime();" />
+                    <span class="switch-label" data-on="On" data-off="Off"></span>
+                    <span class="switch-handle"></span>
+                  </label>
+                </div>
+                <div class="col-auto">
+                  <input type="number" min="1" max="720" class="form-control" formControlName="time" />
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <!-- /TIME -->
+
+          <!-- BACK BUTTON -->
+          <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <div class="single-special text-center wow fadeInUp align-middle" data-wow-delay="0.2s" style="height: 85%;">
+
+              <div class="single-text-top-icon">
+                <h5 class="color-red">Back Button</h5>
+              </div>
+
+              <div class="row justify-content-md-center">
+                <div class="col-md-12 text-center">
+                  <label class="switch">
+                    <input class="switch-input checkSwitch" type="checkbox" formControlName="buttonBack" />
+                    <span class="switch-label" data-on="On" data-off="Off"></span>
+                    <span class="switch-handle"></span>
+                  </label>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <!-- /BACK BUTTON -->
+
+        </div>
+
+      </form>
+
+      <!-- FOOTER -->
+      <br>
+      <div class="row justify-content-md-center">
+
+        <div class="col-6 col-md-2">
+          <a [routerLink]="['/lesson', lesson.idLesson, 'lesson']" class="btn btn-purple btn-block icon-undo2"
+            data-toggle="tooltip" data-placement="bottom" title="Return lesson" (click)="goToLesson()">
+            Back</a>
+        </div>
+        <div class="col-6 col-md-2">
+          <button class="btn btn-red btn-block icon-writing" data-toggle="tooltip" data-placement="bottom" title="Go to exam"
+            (click)="goToExam()" [disabled]="!form.valid"> Exam</button>
+        </div>
+
+      </div>
+      <!-- /FOOTER -->
+
+
+    </div>
+  </div>
+  <!-- /CONFIG EXAM-->
+
+
+
+
+</div>

@@ -1,0 +1,74 @@
+.ico-tab-lesson {
+    font-size: 30px;
+    text-transform: capitalize;
+}
+
+.content {
+    width: 80%;
+    margin: 0 auto;
+    padding: 60px 0;
+}
+
+.header-cont {
+    width:100%;
+    position:fixed;
+    top:0px;
+}
+
+.border-item{
+    border: 1px dashed grey;
+    padding: 5px;
+    margin: 5px;
+}
+.div-class{
+    height: 100px;
+    margin: 5%;
+    border-radius: 50%;
+}
+.div-class-text{
+    text-align: center; 
+    vertical-align: middle; 
+    position: relative;
+}
+.div-class-img{
+    height: 130px;
+    margin: 5%;
+}
+.border-item{
+    border: 1px dashed grey;
+    padding: 5px;
+    margin: 5px;
+}
+img.resize{
+    width: 170px;
+    height: 130px;
+    border-radius: 6px;
+}
+.input-group-addon.icon-volume-medium:hover{
+    color: #286090;
+}
+.card-title-top{
+    margin-bottom: 0.75rem;
+}
+.card-title-bottom{
+    margin-top: 0.75rem;
+}
+.icon-volume-medium{
+    cursor: pointer;
+}
+.img-fluid {
+    height: 128px;
+    border-radius: 10px;
+}
+
+.single-text-top-icon {
+    margin-bottom: 10px;
+}
+
+.single-text-bottom-icon {
+    margin-top: 10px;
+}
+
+.single-special {
+    border-radius: 20px 20px 20px 20px;
+}

@@ -1,0 +1,50 @@
+<form [formGroup]="form">
+  <div class="row text-center justify-content-center">
+
+
+    <div class="col-sm-12 col-md-2">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" formControlName="present">
+        <label class="form-check-label" for="defaultCheck1">
+          Present
+        </label>
+      </div>
+    </div>
+
+    <div class="col-sm-12 col-md-2">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" formControlName="past">
+        <label class="form-check-label" for="defaultCheck1">
+          Past
+        </label>
+      </div>
+    </div>
+
+    <div class="col-sm-12 col-md-2">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" formControlName="pastParticiple">
+        <label class="form-check-label" for="defaultCheck1">
+          Past Participle
+        </label>
+      </div>
+    </div>
+
+    <div class="col-sm-12 col-md-2">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" formControlName="spanish">
+        <label class="form-check-label" for="defaultCheck1">
+          Spanish
+        </label>
+      </div>
+    </div>
+
+  </div>
+</form>
+
+
+<div class="row justify-content-center">
+  <div class="col-auto">
+    <app-table [idLesson]="idLesson" [config]="config" [columns]="columns" [data]="dataTable"
+      (responseEvent)="getResponseTable($event)"></app-table>
+  </div>
+</div>

@@ -1,0 +1,132 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?5hisnf');
+  src:  url('fonts/icomoon.eot?5hisnf#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?5hisnf') format('truetype'),
+    url('fonts/icomoon.woff?5hisnf') format('woff'),
+    url('fonts/icomoon.svg?5hisnf#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-ordinal-number-1:before {
+  content: "\b300";
+}
+.icon-ordinal-number-2:before {
+  content: "\b301";
+}
+.icon-ordinal-number-3:before {
+  content: "\b302";
+}
+.icon-ordinal-number-4:before {
+  content: "\b303";
+}
+.icon-ordinal-number-5:before {
+  content: "\b304";
+}
+.icon-ordinal-number-6:before {
+  content: "\b305";
+}
+.icon-ordinal-number-7:before {
+  content: "\b306";
+}
+.icon-ordinal-number-8:before {
+  content: "\b307";
+}
+.icon-ordinal-number-9:before {
+  content: "\b308";
+}
+.icon-ordinal-number-10:before {
+  content: "\b309";
+}
+.icon-ordinal-number-11:before {
+  content: "\b30a";
+}
+.icon-ordinal-number-12:before {
+  content: "\b30b";
+}
+.icon-ordinal-number-13:before {
+  content: "\b30c";
+}
+.icon-ordinal-number-14:before {
+  content: "\b30d";
+}
+.icon-ordinal-number-15:before {
+  content: "\b30e";
+}
+.icon-ordinal-number-16:before {
+  content: "\b30f";
+}
+.icon-ordinal-number-17:before {
+  content: "\b310";
+}
+.icon-ordinal-number-18:before {
+  content: "\b311";
+}
+.icon-ordinal-number-19:before {
+  content: "\b312";
+}
+.icon-ordinal-number-20:before {
+  content: "\b313";
+}
+.icon-ordinal-number-21:before {
+  content: "\b314";
+}
+.icon-ordinal-number-22:before {
+  content: "\b315";
+}
+.icon-ordinal-number-30:before {
+  content: "\b316";
+}
+.icon-ordinal-number-40:before {
+  content: "\b317";
+}
+.icon-ordinal-number-50:before {
+  content: "\b318";
+}
+.icon-ordinal-number-60:before {
+  content: "\b319";
+}
+.icon-ordinal-number-70:before {
+  content: "\b31a";
+}
+.icon-ordinal-number-80:before {
+  content: "\b31b";
+}
+.icon-ordinal-number-90:before {
+  content: "\b31c";
+}
+.icon-ordinal-number-100:before {
+  content: "\b31d";
+}
+.icon-ordinal-number-101:before {
+  content: "\b31e";
+}
+.icon-ordinal-number-1000:before {
+  content: "\b31f";
+}
+.icon-ordinal-number-2000:before {
+  content: "\b320";
+}
+.icon-ordinal-number-100000:before {
+  content: "\b321";
+}
+.icon-ordinal-number-1000000:before {
+  content: "\b322";
+}
+

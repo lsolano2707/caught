@@ -1,0 +1,25 @@
+.starburst2 {
+    display: block;
+    width: 6em;
+    height: 6em;
+    background: #fe0;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    rotation: -45deg;
+    position: relative;
+    top: 2em;
+    left: 2em;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    /* text-shadow: 0 0 3em #f00, 0 0 4px #f30; */
+    -moz-transition: -moz-transform 0.3s ease;
+    -webkit-transition: -webkit-transform 0.3s ease;
+    /* transition: transform 0.3s ease; */
+}
+
+.col-sm-12 {
+    margin-bottom: 5px;
+}
